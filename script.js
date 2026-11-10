@@ -321,28 +321,20 @@
   });
 })();
 
-// Submit form: Pricing choice shows the right price field; one-time price is required (min from fee.js) with a live "You receive about" calculator.
-// AppShuk keeps its fee and Stripe's card fee comes off each sale; the maker's share is computed by site/fee.js (rounded down to the cent).
-// The "You receive" number shows only for a valid price (at or above the minimum).
+// Submit form: the Pricing choice shows the matching price field. The price is information only (shown on the listing):
+// it's optional, has no minimum, and the field for a type that isn't picked is turned off so it isn't sent.
 (function () {
   var box = document.getElementById('pricing');
   if (!box) return;
-  var FEE = window.AppShukFee, price = document.getElementById('f-price');
-  var calc = box.querySelector('.calc'), out = box.querySelector('[data-calc]'), field = box.querySelector('[data-calc-field]');
   function cur() { var c = box.querySelector('input[name="Pricing"]:checked'); return c ? c.getAttribute('data-p') : 'free'; }
   function update() {
     var p = cur();
-    box.querySelectorAll('[data-show]').forEach(function (d) { d.hidden = d.getAttribute('data-show') !== p; });
-    price.required = p === 'one-time';
-    var v = parseFloat(price.value);
-    var low = p === 'one-time' && price.value !== '' && FEE && !FEE.validPrice(v);
-    price.setCustomValidity(low ? 'The lowest price is $' + FEE.MIN_PRICE.toFixed(2) + '.' : '');
-    if (p === 'one-time' && v > 0 && FEE && FEE.validPrice(v)) {
-      var get = FEE.receive(v); // rounded down to the cent, so we never overstate
-      out.textContent = '$' + get.toFixed(2); calc.hidden = false; field.value = '$' + get.toFixed(2);
-    } else { calc.hidden = true; field.value = ''; }
+    box.querySelectorAll('[data-show]').forEach(function (d) {
+      var off = d.getAttribute('data-show') !== p;
+      d.hidden = off;
+      d.querySelectorAll('input').forEach(function (i) { i.disabled = off; });
+    });
   }
   box.addEventListener('change', update);
-  price.addEventListener('input', update);
   update();
 })();
