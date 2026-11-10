@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<rect width="800" height="500" fill="#FFFDF8"/>
+<rect width="800" height="56" fill="#2E3E66"/>
+<text x="28" y="36" fill="#FFFDF8" font-size="22" font-weight="700">Seder Plate Builder</text>
+<text x="772" y="36" fill="#D8DDEB" font-size="16" text-anchor="end">5 of 6 placed</text>
+<g transform="translate(250 278)">
+<circle r="200" fill="#EDE7DA"/><circle r="186" fill="#FFFDF8" stroke="#C9BFAA" stroke-width="2"/>
+<g class="he" font-size="22" text-anchor="middle" fill="#1E2422">
+<circle cx="-78" cy="-110" r="44" fill="#F3E3D3"/><text x="-78" y="-102">זרוע</text>
+<circle cx="78" cy="-110" r="44" fill="#F3E3D3"/><text x="78" y="-102">ביצה</text>
+<circle cx="0" cy="0" r="44" fill="#E4F0E6"/><text x="0" y="8">מרור</text>
+<circle cx="-78" cy="110" r="44" fill="#EADBC6"/><text x="-78" y="118">חרוסת</text>
+<circle cx="78" cy="110" r="44" fill="none" stroke="#9AA3A1" stroke-width="2" stroke-dasharray="6 6"/>
+</g>
+</g>
+<g transform="translate(500 96)">
+<text fill="#5E625D" font-size="15" y="16">Drag to the plate</text>
+<rect y="34" width="268" height="64" fill="#E4F0E6" stroke="#3D5A3A" stroke-width="2"/><text x="20" y="74" font-size="19" fill="#1E2422" font-weight="700">Karpas</text><text x="248" y="76" class="he" font-size="24" fill="#1E2422" text-anchor="end">כרפס</text>
+<rect y="114" width="268" height="64" fill="#FFFDF8" stroke="#D3CBBB"/><text x="20" y="154" font-size="19" fill="#1E2422">Chazeres</text><text x="248" y="156" class="he" font-size="24" fill="#1E2422" text-anchor="end">חזרת</text>
+<rect y="214" width="268" height="150" fill="#F3EEE3"/>
+<text x="20" y="250" font-size="15" fill="#5E625D">Maror</text>
+<text x="20" y="282" font-size="17" fill="#1E2422">Bitter herbs, for the</text>
+<text x="20" y="306" font-size="17" fill="#1E2422">bitter work in Mitzrayim.</text>
+</g>
+</svg>
