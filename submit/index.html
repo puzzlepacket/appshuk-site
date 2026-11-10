@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Share your app · AppShuk</title>
-<meta name="description" content="Share your app on AppShuk, free or paid. The marketplace for apps made by our community. Every app is reviewed before it's listed.">
+<meta name="description" content="Share your app on AppShuk. Listing is currently free for every app, free or paid. Every app is reviewed before it's listed.">
 <meta property="og:title" content="Share your app · AppShuk">
-<meta property="og:description" content="Share your app on AppShuk, free or paid. The marketplace for apps made by our community. Every app is reviewed before it's listed.">
+<meta property="og:description" content="Share your app on AppShuk. Listing is currently free for every app, free or paid. Every app is reviewed before it's listed.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#F6F2EA">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -26,7 +26,7 @@
 <main id="main">
 
 <section class="wrap page-head"><h1>Share your app on AppShuk</h1>
-<p class="lead">Teachers, parents, developers, shuls and organizations: if you made an app for any part of Jewish life, send it in below. Every app is reviewed before it goes live, and we will write back to you by email.</p></section>
+<p class="lead">Teachers, parents, developers, shuls, and organizations: if you made an app for any part of Jewish life, send it in below. Every app is reviewed before it goes live, and we will write back to you by email.</p></section>
 <div class="wrap submit-grid">
 <form class="form" id="submit-form" action="mailto:info@theappshuk.com" method="post" enctype="text/plain" data-to="info@theappshuk.com">
   <div class="field"><label for="f-name">Your name, or your organization's</label><input id="f-name" name="Name" autocomplete="name" required></div>
@@ -56,26 +56,24 @@
   <fieldset class="field pricing" id="pricing"><legend>Pricing</legend>
     <label class="radio"><input type="radio" name="Pricing" value="Free" data-p="free" checked> Free</label>
     <label class="radio"><input type="radio" name="Pricing" value="One-time price" data-p="one-time"> One-time price</label>
-    <label class="radio"><input type="radio" name="Pricing" value="Subscription (billed on my site)" data-p="sub"> Subscription</label>
-    <label class="radio"><input type="radio" name="Pricing" value="School license (billed on my site)" data-p="sub"> School license</label>
-    <div class="price-in" data-show="one-time"><label for="f-price">Price in US dollars <span class="req">(required, at least $1.99)</span></label><div class="dollar"><span aria-hidden="true">$</span><input id="f-price" name="Price" type="number" min="1.99" step="0.01" inputmode="decimal" placeholder="14.99"></div>
-      <p class="calc" aria-live="polite" hidden>You receive about <b data-calc>$0.00</b> per sale.</p><input type="hidden" name="You receive about" data-calc-field></div>
-    <div class="price-in" data-show="sub"><label for="f-from">Starting price, if you want it shown</label><input id="f-from" name="Starting price" placeholder="e.g. $4.99/mo, or $1,500/yr per school"><small>Subscriptions and school licenses list free and are billed on your own site; AppShuk earns a referral share, agreed in a simple one-page agreement.</small></div>
+    <label class="radio"><input type="radio" name="Pricing" value="Subscription" data-p="sub"> Subscription</label>
+    <label class="radio"><input type="radio" name="Pricing" value="School license" data-p="sub"> School license</label>
+    <div class="price-in" data-show="one-time"><label for="f-price">Price in US dollars, if you want it shown</label><div class="dollar"><span aria-hidden="true">$</span><input id="f-price" name="Price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="14.99"></div></div>
+    <div class="price-in" data-show="sub"><label for="f-from">Starting price, if you want it shown</label><input id="f-from" name="Starting price" placeholder="e.g. $4.99/mo, or $1,500/yr per school"></div>
+    <small>Listing is currently free for every app. The price is only shown on your listing. People pay on your own site or store, not on AppShuk.</small>
   </fieldset>
-  <p class="fee-note">Stripe’s processing fee (about 3% + 30¢) comes off each sale. AppShuk keeps 15%. The lowest price is $1.99. Example: on a $14.99 app you receive about $12.00.</p>
-  <label class="check fee-ok"><input type="checkbox" name="Fees" value="I understand the fees above: AppShuk keeps 15% of each sale, and Stripe’s processing fee comes off each sale." required> I understand the fees above: AppShuk keeps 15% of each sale, and Stripe’s processing fee comes off each sale.</label>
   <div class="field"><label for="f-desc">What the app does, and who it's for</label><textarea id="f-desc" name="Description" rows="5" required></textarea></div>
   <button class="btn" type="submit">Send submission</button>
   <p class="form-note">This opens your email app with everything filled in. Press Send there to submit.</p>
 </form>
 <section class="faq" id="faq" aria-labelledby="faq-h"><h2 id="faq-h">Author FAQ</h2>
-  <details open><summary>Who can share an app on AppShuk?</summary><p>Anyone who makes an app for the Jewish community: teachers and morahs, parents, developers, shuls, schools, businesses and organizations. You don't need to be a company.</p></details>
-  <details><summary>What does it cost to list?</summary><p>Nothing up front, and free apps list free.</p><p>Stripe’s processing fee (about 3% + 30¢) comes off each sale. AppShuk keeps 15%. The lowest price is $1.99. Example: on a $14.99 app you receive about $12.00.</p></details>
-  <details><summary>How do I get paid?</summary><p>Through Stripe. Buyers pay by card, and Stripe sends your share to your bank account. You'll set up a free Stripe account when your app is approved.</p></details>
-  <details><summary>What do you check before an app goes live?</summary><p>That it works, that it does what the description says, and that the content is kosher and right for a Jewish home, school or shul. If something needs changing we'll tell you what.</p></details>
-  <details><summary>What kind of apps can I list?</summary><p>Apps that open in a web browser, on a computer, tablet, phone or smartboard, for any part of Jewish life: learning, kids and games, home and family, shul and community, work and business, or productivity and tools (AI apps too).</p></details>
-  <details><summary>Who owns my app?</summary><p>You do. You can change the price, update it or take it down by emailing us.</p></details>
-  <details><summary>Can I list a subscription or school-license app?</summary><p>Yes, and listing it is free. You keep billing on your own system. Your listing links to your site with your own AppShuk link, and can show an AppShuk promo code. School and organization licenses also get a Request a quote button: the request goes to you by email, with AppShuk copied.</p><p>AppShuk earns a referral share on the customers it sends you, agreed with you in a simple one-page agreement.</p></details>
+  <details open><summary>Who can share an app on AppShuk?</summary><p>Anyone who makes an app for the Jewish community: teachers, parents, developers, shuls, schools, businesses, and organizations. You don't need to be a company.</p></details>
+  <details><summary>What does it cost to list?</summary><p>Listing is free for now.</p></details>
+  <details><summary>How do people buy my app?</summary><p>The Get app button takes them to your own site or store, and you handle payment there. AppShuk doesn’t handle payment or take a share of sales.</p></details>
+  <details><summary>What do you check before an app goes live?</summary><p>That it works, that it does what the description says, and that the content is kosher and right for a Jewish home, business, or school. If something needs changing we'll tell you what.</p></details>
+  <details><summary>What kind of apps can I list?</summary><p>Free, paid, and subscription apps are all accepted. Apps that open in a web browser, on a computer, tablet, phone, or smartboard, for any part of Jewish life: learning, kids and games, home and family, shul and community, work and business, or productivity and tools (AI apps too).</p></details>
+  <details><summary>Who owns my app?</summary><p>You do. You can update your listing or take it down by emailing us.</p></details>
+  <details><summary>Can I list a subscription or school-license app?</summary><p>Yes. You keep billing on your own site. Your listing links to your site and can show a promo code. School and organization licenses also get a Request a quote button: the request goes to you by email, with AppShuk copied.</p></details>
 </section>
 </div>
 </main>
@@ -83,10 +81,10 @@
   <div><a class="wordmark small" href="../">App<span>Shuk</span></a>
   <p>Apps made by our community, for every part of Jewish life.</p></div>
   <nav aria-label="Footer"><a href="../submit/">Share your app</a><a href="../submit/#faq">Author FAQ</a><a href="../about/">About &amp; contact</a></nav>
+  <p class="copy">AppShuk lists apps made by others and isn’t responsible for problems with them. For help with an app, please contact its developer.</p>
   <p class="copy">© 2026 AppShuk · <a href="mailto:info@theappshuk.com">info@theappshuk.com</a></p>
 </div></footer>
 <script src="../filters.js" defer></script>
-<script src="../fee.js" defer></script>
 <script src="../script.js" defer></script>
 </body>
 </html>
