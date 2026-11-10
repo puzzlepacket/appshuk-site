@@ -478,3 +478,9 @@ html.sheet-open,html.sheet-open body{overflow:hidden}
 .soon-cta{margin:30px 0 0}
 .btn-big{font-size:19px;padding:16px 30px;min-width:15em;max-width:100%}
 .soon-note{font-size:15px;color:var(--muted);max-width:30em;margin:22px auto 0}
+
+/* footer: the notice line and the © line stack in the right column on wide screens */
+@media (min-width:960px){
+  .foot-row .copy{grid-column:3}
+  .foot-row .copy + .copy{margin-top:10px}
+}
