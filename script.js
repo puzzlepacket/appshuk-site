@@ -67,7 +67,7 @@
     var d = IDX.doorBy[IDX.subBy[a.c[0]].d];
     return '<li class="row" style="--c:' + d.c + ';--t:' + d.t + '"><a href="' + href(a) + '"><span class="ico">' + thumb(a) + '</span><span class="row-main"><span class="row-title">' + esc(a.t) +
       '</span><span class="row-by">' + (a.sm ? '<b class="tag">Sample</b> ' : '') + 'by ' + esc(a.a) + '</span><span class="row-short">' + esc(a.d) +
-      '</span></span><span class="row-chips"><b class="chip chip-price' + (a.pr === 'free' ? ' free' : a.pr === 'subscription' ? ' sub' : '') + '">' + esc(a.pl) + '</b><span class="chip chip-age">' + esc(a.g) + '</span></span></a></li>';
+      '</span></span><span class="row-chips"><span class="chip chip-age">' + esc(a.g) + '</span></span></a></li>';
   }
   // Search: every word must match somewhere; title matches rank first
   function search(q, list) {
@@ -106,7 +106,7 @@
       load().then(function () {
         var hits = search(q, IDX.all), secs = sectionHits(q), html = '';
         hits.slice(0, 5).forEach(function (a) {
-          html += '<a role="option" class="sg-app" href="' + href(a) + '"><span class="ico">' + thumb(a) + '</span><span><b>' + esc(a.t) + '</b><small>' + esc(a.a) + ' · ' + esc(a.pl) + '</small></span></a>';
+          html += '<a role="option" class="sg-app" href="' + href(a) + '"><span class="ico">' + thumb(a) + '</span><span><b>' + esc(a.t) + '</b><small>' + esc(a.a) + '</small></span></a>';
         });
         secs.forEach(function (s) { html += '<a role="option" class="sg-sec" href="' + s.u + '"><small>' + s.k + '</small> ' + esc(s.n) + '</a>'; });
         html += hits.length ? '<a role="option" class="sg-all" href="' + ROOT + 'search/?q=' + encodeURIComponent(q) + '">See all ' + hits.length + ' result' + (hits.length > 1 ? 's' : '') + '</a>'
@@ -173,7 +173,7 @@
     function chips() {
       var html = '';
       F.GROUPS.forEach(function (k) { st[k].forEach(function (v) { html += '<li><button type="button" data-k="' + k + '" data-v="' + esc(v) + '" aria-label="Remove filter: ' + esc(labelOf(k, v)) + '">' + esc(labelOf(k, v)) + '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg></button></li>'; }); });
-      if (st.max) html += '<li><button type="button" data-k="max" data-v="' + st.max + '" aria-label="Remove filter: Under $' + st.max + '">Under $' + st.max + '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg></button></li>';
+    // (no price chip: AppShuk shows no prices)
       chipsList.innerHTML = html; chipsBox.hidden = !html;
       chipsList.querySelectorAll('button').forEach(function (b) {
         b.addEventListener('click', function () {
