@@ -32,7 +32,7 @@
   <div class="field"><label for="f-name">Your name, or your organization's</label><input id="f-name" name="Name" autocomplete="name" required></div>
   <div class="field"><label for="f-email">Email</label><input id="f-email" name="Email" type="email" autocomplete="email" required></div>
   <div class="field"><label for="f-app">App or website name</label><input id="f-app" name="App name" required></div>
-  <div class="field"><label for="f-link">Link to your app or website</label><input id="f-link" name="Link" type="url" placeholder="https://" required><small>A web address where we can open and try it.</small></div>
+  <div class="field"><label for="f-link">Link to your app or website</label><input id="f-link" name="Link" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="url" placeholder="lessondj.com or https://…" required><small>A web address where we can open and try it.</small></div>
   <div class="field"><label for="f-cat">Category</label><select id="f-cat" name="Category" required><option value="">Choose a section and category…</option><optgroup label="Learning &amp; Education"><option value="Learning &amp; Education › Parsha" data-c="parsha">Parsha</option><option value="Learning &amp; Education › Chumash &amp; Navi" data-c="chumash-navi">Chumash &amp; Navi</option><option value="Learning &amp; Education › Hebrew Reading" data-c="hebrew-reading">Hebrew Reading</option><option value="Learning &amp; Education › Brachos &amp; Tefillah" data-c="brachos-tefillah">Brachos &amp; Tefillah</option><option value="Learning &amp; Education › Yom Tov" data-c="yom-tov">Yom Tov</option><option value="Learning &amp; Education › Games &amp; Puzzles" data-c="games-puzzles">Games &amp; Puzzles</option><option value="Learning &amp; Education › Math &amp; General Studies" data-c="math-general">Math &amp; General Studies</option><option value="Learning &amp; Education › Teacher Tools" data-c="teacher-tools">Teacher Tools</option></optgroup><optgroup label="Kids &amp; Games"><option value="Kids &amp; Games › Little Ones" data-c="kids-little">Little Ones</option><option value="Kids &amp; Games › Puzzles &amp; Brain Games" data-c="kids-puzzles">Puzzles &amp; Brain Games</option><option value="Kids &amp; Games › Quizzes &amp; Trivia" data-c="kids-quizzes">Quizzes &amp; Trivia</option><option value="Kids &amp; Games › Stories &amp; Songs" data-c="kids-stories">Stories &amp; Songs</option><option value="Kids &amp; Games › Drawing &amp; Crafts" data-c="kids-create">Drawing &amp; Crafts</option></optgroup><optgroup label="Home &amp; Family"><option value="Home &amp; Family › Zmanim &amp; Calendar" data-c="home-zmanim">Zmanim &amp; Calendar</option><option value="Home &amp; Family › Shabbos &amp; Yom Tov" data-c="home-shabbos-yomtov">Shabbos &amp; Yom Tov</option><option value="Home &amp; Family › Kashrus" data-c="home-kashrus">Kashrus</option><option value="Home &amp; Family › Recipes &amp; Cooking" data-c="home-recipes">Recipes &amp; Cooking</option><option value="Home &amp; Family › Simchas &amp; Events" data-c="home-simchas">Simchas &amp; Events</option></optgroup><optgroup label="Shul &amp; Community"><option value="Shul &amp; Community › Luach &amp; Shul Displays" data-c="shul-luach">Luach &amp; Shul Displays</option><option value="Shul &amp; Community › Minyan &amp; Shiurim" data-c="shul-minyan">Minyan &amp; Shiurim</option><option value="Shul &amp; Community › Tzedakah &amp; Fundraising" data-c="shul-tzedakah">Tzedakah &amp; Fundraising</option><option value="Shul &amp; Community › Shul &amp; Organization Office" data-c="shul-admin">Shul &amp; Organization Office</option></optgroup><optgroup label="Work &amp; Business"><option value="Work &amp; Business › Small Business" data-c="work-business">Small Business</option><option value="Work &amp; Business › Shabbos &amp; Yom Tov Hours" data-c="work-shabbos-hours">Shabbos &amp; Yom Tov Hours</option><option value="Work &amp; Business › School &amp; Mosdos Office" data-c="work-school-office">School &amp; Mosdos Office</option><option value="Work &amp; Business › Productivity" data-c="work-productivity">Productivity</option></optgroup><optgroup label="Productivity &amp; Tools"><option value="Productivity &amp; Tools › AI Apps &amp; Assistants" data-c="tools-ai">AI Apps &amp; Assistants</option><option value="Productivity &amp; Tools › Calculators &amp; Converters" data-c="tools-calculators">Calculators &amp; Converters</option><option value="Productivity &amp; Tools › Hebrew Typing &amp; Text" data-c="tools-hebrew">Hebrew Typing &amp; Text</option><option value="Productivity &amp; Tools › Accessibility" data-c="tools-access">Accessibility</option><option value="Productivity &amp; Tools › Everything Else" data-c="tools-other">Everything Else</option></optgroup><optgroup label="Not sure"><option value="Not sure, please place it">Not sure, please place it</option></optgroup></select><small>Pick the closest fit. We can list it in a second place too.</small></div>
   <div class="field"><label for="f-grade">Who it's for, in your words</label><input id="f-grade" name="Who it's for" placeholder="e.g. Grades K–2, parents, shul gabbaim"></div>
   <fieldset class="field ages-pick"><legend>Who it’s for (tick all that fit)</legend>
@@ -57,6 +57,26 @@
   <button class="btn" type="submit">Send submission</button>
   <p class="form-note">This opens your email app with everything filled in. Press Send there to submit.</p>
 </form>
+<script>
+// Link field: takes "lessondj.com", "www.lessondj.com", or a full http(s) link. Adds https:// when there's no scheme.
+(function () {
+  var form = document.getElementById('submit-form'), link = document.getElementById('f-link');
+  if (!form || !link) return;
+  function fix() {
+    var v = link.value.trim();
+    if (v && !/^[a-z][a-z0-9+.-]*:\/\//i.test(v)) v = 'https://' + v.replace(/^\/+/, '');
+    link.value = v;
+  }
+  function check() {
+    var v = link.value.trim();
+    link.setCustomValidity(v && v.indexOf('.') < 0 ? 'Please enter a web address, like lessondj.com' : '');
+  }
+  link.addEventListener('input', check);
+  link.addEventListener('change', check);
+  form.addEventListener('submit', function () { check(); if (link.checkValidity()) fix(); });
+  form.querySelector('[type="submit"]').addEventListener('click', check);
+})();
+</script>
 <section class="faq" id="faq" aria-labelledby="faq-h"><h2 id="faq-h">Author FAQ</h2>
   <details open><summary>Who can share an app on AppShuk?</summary><p>Anyone who makes an app for the Jewish community: teachers, parents, developers, shuls, schools, businesses, and organizations. You don't need to be a company.</p></details>
   <details><summary>What do you check before an app goes live?</summary><p>That it works, that it does what the description says, and that the content is kosher and right for a Jewish home, business, or school. If something needs changing we'll tell you what.</p></details>
